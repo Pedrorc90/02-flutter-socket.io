@@ -5,7 +5,7 @@ require('dotenv').config();
 
 // Express app
 const app = express(); // Init express and ready to listen
-
+app.set('port', process.env.PORT || 3000);
 // Node server
 const server = require('http').createServer(app); // Create server
 module.exports.io = require('socket.io')(server);
