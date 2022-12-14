@@ -4,10 +4,10 @@ const Bands = require('../models/bands');
 
 const bands = new Bands();
 
-bands.addBand( new Band( 'Queen' ) );
-bands.addBand( new Band( 'Bon Jovi' ) );
-bands.addBand( new Band( 'Heroes del Silencio' ) );
-bands.addBand( new Band( 'Metallica' ) );
+bands.addBand( new Band( 'Linkin Park' ) );
+bands.addBand( new Band( 'Marea' ) );
+bands.addBand( new Band( 'Extremoduro' ) );
+bands.addBand( new Band( 'Imagine Dragons' ) );
 
 
 // Socket messages
@@ -19,9 +19,7 @@ io.on('connection', client => {
     client.on('disconnect', () => {console.log("Client disconnected") });
 
     client.on('emit-message', ( payload ) => {
-        console.log(payload)
         client.broadcast.emit('new-message', payload); // Emit to all except who emitted
-        
     });
 
     client.on('vote-band', ( payload ) => {
